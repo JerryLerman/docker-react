@@ -1,4 +1,3 @@
-language: node_js
 sudo: required
 # Tells Travis we need a copy of docker ready
 services:
@@ -9,5 +8,5 @@ services:
 before_install:
   - docker build -t jerrylerman/docker-react -f Dockerfile.dev . 
 
-  script:
+script:
     - docker run jerrylerman/docker-react npm run test -- --coverage
