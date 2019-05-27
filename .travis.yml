@@ -1,0 +1,12 @@
+sudo: required
+# Tells Travis we need a copy of docker ready
+services:
+  - docker
+
+# The tag is only used in this build so can be anything but
+# conventionally, the formal tag syntax is used
+before_install:
+  - docker build -t jerrylerman/docker-react -f Dockerfile.dev . 
+
+  script:
+    - docker run jerrylerman/docker-react npm run test -- --coverage
