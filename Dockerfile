@@ -10,6 +10,8 @@ RUN npm run build
 # This creates everything in the working directory. Therefore the
 # folder we care about is /app/build. So here we are creating the nginx folder
 FROM nginx
+# Elastic beanstalk needs this to know what port to use
+EXPOSE 80
 
 # Want to copy something from a prior phase so using --from
 # Note that anything in the /usr/share/nginx/html folder inside the
